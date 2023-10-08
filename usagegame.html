@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>water usage</title>
+</head>
+<body style="background-color: black;">
+    <a href="time.html">Next</a>
+    <!-- Embed an external website using an iframe -->
+    <iframe src="https://www.watercalculator.org/wfc2/q/household/" width="1500px" height="1000px" frameborder="0"></iframe>
+
+</body>
+</html>
+
+<script>
+    // Add an event listener to listen for the right arrow key press (key code 39)
+    document.addEventListener('keydown', function(event) {
+        if (event.keyCode === 39) {
+            // Redirect to the next page
+            window.location.href = 'time.html'; // Change 'next_page.html' to the actual URL of the next page
+        }
+    });
+</script>

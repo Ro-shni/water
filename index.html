@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HOME</title>
+</head>
+<body>
+    <h1></h1>
+    <title>3D Space</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #000;
+        }app
+
+        .stars {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #fff;
+            animation: twinkle 1s infinite;
+        }
+        @keyframes twinkle {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .star-container {
+            position: absolute;
+            animation: move-stars 100s linear infinite;
+        }
+
+        @keyframes move-stars {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(-2000px, -2000px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="star-container">
+        <!-- Generate stars using JavaScript -->
+    </div>
+</body>
+
+<script>
+    // JavaScript to generate stars
+const starContainer = document.querySelector('.star-container');
+
+function createStar() {
+    const star = document.createElement('div');
+    star.className = 'stars';
+    star.style.left = `${Math.random() * 100}vw`;
+    star.style.top = `${Math.random() * 100}vh`;
+    starContainer.appendChild(star);
+}
+
+for (let i = 0; i < 200; i++) {
+    createStar();
+}
+
+</script>
+    <script>
+        // Add an event listener to listen for the right arrow key press (key code 39)
+        document.addEventListener('keydown', function(event) {
+            if (event.keyCode === 39) {
+                // Redirect to the next page
+                window.location.href = 'next.html'; // Change 'next_page.html' to the actual URL of the next page
+            }
+        });
+    </script>
+</body>
+</html>

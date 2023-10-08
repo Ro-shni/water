@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Globe</title>
+</head>
+<body>
+    <a href="watercycle.html">Next</a>
+    
+    <!-- Embed an external website using an iframe -->
+    <iframe src="https://earth3dmap.com/3d-globe/" width="2000" height="1000" frameborder="0"></iframe>
+
+</body>
+</html>
+
+<script>
+    // Add an event listener to listen for the right arrow key press (key code 39)
+    document.addEventListener('keydown', function(event) {
+        if (event.keyCode === 39) {
+            // Redirect to the next page
+            window.location.href = 'watercycle.html'; // Change 'next_page.html' to the actual URL of the next page
+        }
+    });
+</script>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Avatar Creator</title>
+</head>
+<body style="background-color: #000;">
+    <div class="container">
+        <h1>Avatar Creator</h1>
+        <div class="avatar-container">
+            <div class="avatar">
+                <div class="head">
+                    <div class="eyes">
+                        <div class="eye left-eye"></div>
+                        <div class="eye right-eye"></div>
+                    </div>
+                    <div class="nose"></div>
+                    <div class="mouth"></div>
+                </div>
+                <div class="body">
+                    <div class="shirt"></div>
+                </div>
+                <div class="hair">
+                    <div class="hair-top"></div>
+                </div>
+            </div>
+            <div class="options">
+                <h2>Customize Your Avatar</h2>
+                <label for="skin-color">Skin Color:</label>
+                <input type="range" id="skin-color" min="1" max="10" value="5">
+                <label for="eye-color">Eye Color:</label>
+                <select id="eye-color">
+                    <option value="black">Black</option>
+                    <option value="blue">Blue</option>
+                    <option value="green">Green</option>
+                    <option value="brown">Brown</option>
+                </select>
+                <label for="hair-style">Hair Style:</label>
+                <select id="hair-style">
+                    <option value="short">Short</option>
+                    <option value="long">Long</option>
+                    <option value="curly">Curly</option>
+                    <option value="bald">Bald</option>
+                </select>
+                <label for="shirt-color">Shirt Color:</label>
+                <select id="shirt-color">
+                    <option value="red">Red</option>
+                    <option value="blue">Blue</option>
+                    <option value="green">Green</option>
+                    <option value="gray">Gray</option>
+                </select>
+                <label for="mouth-style">Mouth Style:</label>
+                <select id="mouth-style">
+                    <option value="smile">Smile</option>
+                    <option value="neutral">Neutral</option>
+                    <option value="frown">Frown</option>
+                    <option value="grin">Grin</option>
+                </select>
+            </div>
+        </div>
+    </div>    
+</body>
+</html>
+
+
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.container {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    width: 80%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.avatar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.avatar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f0f0f0;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    padding: 20px;
+    width: 180px;
+    height: 180px;
+}
+
+.face {
+    background-color: #fecd84;
+    border: 2px solid #c28960;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    position: relative;
+}
+
+.eyes {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.eye {
+    background-color: #000;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+}
+
+.left-eye {
+    margin-right: 15px;
+}
+
+.nose {
+    background-color: #fecd84;
+    border: 2px solid #c28960;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    margin: 15px auto;
+}
+
+.mouth {
+    background-color: #fecd84;
+    border: 2px solid #c28960;
+    border-radius: 50%;
+    width: 40px;
+    height: 20px;
+    margin: 20px auto;
+}
+
+.hair {
+    background-color: #2a2a2a;
+    border: 2px solid #000;
+    border-radius: 50%;
+    width: 140px;
+    height: 120px;
+    margin-top: -60px;
+    position: relative;
+}
+
+.hair-top {
+    background-color: #2a2a2a;
+    border: 2px solid #000;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.options {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    width: 45%;
+}
+
+label {
+    display: block;
+    margin: 15px 0;
+    font-weight: bold;
+}
+
+select {
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="range"] {
+    width: 100%;
+    height: 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+</style>
+
+
+<script>
+const skinColorInput = document.getElementById('skin-color');
+const eyeColorSelect = document.getElementById('eye-color');
+const hairStyleSelect = document.getElementById('hair-style');
+const shirtColorSelect = document.getElementById('shirt-color');
+const mouthStyleSelect = document.getElementById('mouth-style');
+const leftEye = document.querySelector('.left-eye');
+const rightEye = document.querySelector('.right-eye');
+const hair = document.querySelector('.hair');
+const mouth = document.querySelector('.mouth');
+const body = document.querySelector('.body');
+const shirt = document.querySelector('.shirt');
+
+function updateAvatar() {
+    const skinColorValue = skinColorInput.value;
+    const eyeColorValue = eyeColorSelect.value;
+    const hairStyleValue = hairStyleSelect.value;
+    const shirtColorValue = shirtColorSelect.value;
+    const mouthStyleValue = mouthStyleSelect.value;
+
+    leftEye.style.backgroundColor = eyeColorValue;
+    rightEye.style.backgroundColor = eyeColorValue;
+    hair.style.backgroundColor = hairStyleValue === 'bald' ? 'transparent' : hairStyleValue;
+    mouth.style.transform = `rotate(${mouthStyleValue === 'frown' ? '-' : ''}15deg)`;
+    body.style.backgroundColor = `hsl(28, 50%, ${skinColorValue * 10}%)`;
+    shirt.style.backgroundColor = shirtColorValue;
+}
+
+skinColorInput.addEventListener('input', updateAvatar);
+eyeColorSelect.addEventListener('change', updateAvatar);
+hairStyleSelect.addEventListener('change', updateAvatar);
+shirtColorSelect.addEventListener('change', updateAvatar);
+mouthStyleSelect.addEventListener('change', updateAvatar);
+
+// Initial avatar update
+updateAvatar();
+
+
+</script>
+
+
+<script>
+    // Add an event listener to listen for the right arrow key press (key code 39)
+    document.addEventListener('keydown', function(event) {
+        if (event.keyCode === 39) {
+            // Redirect to the next page
+            window.location.href = 'time.html'; // Change 'next_page.html' to the actual URL of the next page
+        }
+    });
+</script>

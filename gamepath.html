@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Curvy Path Timeline</title>
+</head>
+<body>
+    <div class="timeline">
+        <svg class="timeline-svg" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="200">
+            <path d="M10 80 Q 110 10, 210 80" fill="none" stroke="#007BFF" stroke-width="3"/>
+            <!-- Add more path elements to create a curved timeline -->
+        </svg>
+        <div class="timeline-items">
+            <div class="timeline-item" data-year="2023">
+                <div class="timeline-content">
+                    <h2>Dessert</h2>
+                    <p>Some information about Event 1.</p>
+                </div>
+            </div>
+            <div class="timeline-item" data-year="2023">
+                <div class="timeline-content">
+                    <h2>sea water</h2>
+                    <p>Some information about Event 2.</p>
+                </div>
+            </div>
+            <div class="timeline-item" data-year="2023">
+                <div class="timeline-content">
+                    <h2>Flourine</h2>
+                    <p>Some information about Event 3.</p>
+                </div>
+            </div>
+            <div class="timeline-item" data-year="2023">
+                <div class="timeline-content">
+                    <h2>Dams</h2>
+                    <p>Some information about Event 2.</p>
+                </div>
+            </div>
+            <div class="timeline-item" data-year="2023">
+                <div class="timeline-content">
+                    <h2>Drought</h2>
+                    <p>Some information about Event 2.</p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <div class="timeline-details">
+        <div class="timeline-close">Close</div>
+        <div class="timeline-details-content">
+            <!-- Content for selected timeline item will be inserted here -->
+        </div>
+    </div>
+    
+</body>
+</html>
+
+
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: black;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.timeline {
+    position: relative;
+    width: 80%;
+    background-color: rgb(46, 46, 46);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    display: flex;
+}
+
+.timeline-svg {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+}
+
+.timeline-items {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.timeline-item {
+    padding: 10px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.3s;
+    margin-bottom: 20px;
+}
+
+.timeline-item:hover {
+    transform: scale(1.1);
+}
+
+.timeline-details {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.timeline-close {
+    cursor: pointer;
+    margin-bottom: 10px;
+    text-decoration: underline;
+}
+
+.timeline-details-content {
+    text-align: center;
+}
+</style>
+
+
+<script>
+
+const timelineItems = document.querySelectorAll('.timeline-item');
+const timelineDetails = document.querySelector('.timeline-details');
+const detailsContent = document.querySelector('.timeline-details-content');
+const closeBtn = document.querySelector('.timeline-close');
+
+timelineItems.forEach(item => {
+    item.addEventListener('click', () => {
+        const year = item.getAttribute('data-year');
+        const content = item.querySelector('.timeline-content').innerHTML;
+
+        detailsContent.innerHTML = `<h3>${year}</h3>${content}`;
+        timelineDetails.style.display = 'block';
+    });
+});
+
+closeBtn.addEventListener('click', () => {
+    timelineDetails.style.display = 'none';
+});
+
+
+</script>
+
+<script>
+
+        // Add an event listener to listen for the right arrow key press (key code 39)
+        document.addEventListener('keydown', function(event) {
+            if (event.keyCode === 39) {
+                // Redirect to the next page
+                window.location.href = 'next.html'; // Change 'next_page.html' to the actual URL of the next page
+            }
+        });
+</script>

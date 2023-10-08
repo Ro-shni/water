@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Cycle Video</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Desert</h1>
+    </header>
+    <main>
+        <div class="video-container">
+            <iframe width="1536" height="615" src="https://www.youtube.com/embed/8LqFCF2kmkI?si=iMwmePr3QjKJNR-f" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+    </main>
+</body>
+</html>
+
+
+<style>
+   body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+header {
+    background-color: #000408;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+
+main {
+    display:0;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+
+.video {
+    position: relative;
+    padding-bottom: 0;
+    padding-top: 0;
+    
+    overflow: hidden;
+}
+
+.video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1000%;
+    height: 1000%;
+}
+
+
+</style>
+
+<script>
+    // Add an event listener to listen for the right arrow key press (key code 39)
+    document.addEventListener('keydown', function(event) {
+        if (event.keyCode === 39) {
+            // Redirect to the next page
+            window.location.href = 'desertgame.html'; // Change 'next_page.html' to the actual URL of the next page
+        }
+    });
+</script>
